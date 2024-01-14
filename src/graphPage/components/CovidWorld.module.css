@@ -1,0 +1,42 @@
+.App {
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+  .card {
+    width: 150px;
+    height:400px;
+    padding: 3rem;
+    border-radius: 15px;
+    border: 1px solid #000;
+    margin: 3rem;
+  }
+  
+  .check {
+    display: flex;
+  }
+  .checkNum { /*스크롤바*/
+    flex-direction: column;
+    padding: 3rem 0;
+    overflow-y: scroll; /* 세로 스크롤바가 필요한 경우만 표시 */
+    max-height: 180px; /* 스크롤 가능한 높이 설정 */
+  }
+  .all_checked {
+    border-bottom: 1px solid #000;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+  .input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .button {
+    width: 60px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgb(18, 72, 250);
+    color: white;
+    border: none;
+    border-radius: 10%;
+  }
