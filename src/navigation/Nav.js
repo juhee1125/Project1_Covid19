@@ -17,28 +17,24 @@ function Nav() {
   const M3Text=useRef();
   const blurPage=useRef();
 
+  const buttons = [sub1Btn, sub2Btn, sub3Btn];
   const clickMenu = () => {
-    if(sub1Btn.current.style.display=='block'){
-    sub1Btn.current.classList.remove("appear");
-    sub1Btn.current.classList.add("disappear");
-    sub2Btn.current.classList.remove("appear");
-    sub2Btn.current.classList.add("disappear");
-    sub3Btn.current.classList.remove("appear");
-    sub3Btn.current.classList.add("disappear");
-    }else{
-      sub1Btn.current.classList.remove("disappear");
-      sub1Btn.current.classList.add("appear");
-      sub2Btn.current.classList.remove("disappear");
-      sub2Btn.current.classList.add("appear");
-      sub3Btn.current.classList.remove("disappear");
-      sub3Btn.current.classList.add("appear");
-      sub1Btn.current.style.display='block'; //ref={}로 참조한 요소 변서에 담기
-      sub2Btn.current.style.display='block';
-      sub3Btn.current.style.display='block';
-      blurPage.current.style.display='block';
-    setCheckAnim(true);
+    if (sub1Btn.current.style.display === 'block') {
+      buttons.forEach(btn => {
+        btn.current.classList.remove("appear");
+        btn.current.classList.add("disappear");
+      });
+    } else {
+      buttons.forEach(btn => {
+        btn.current.classList.remove("disappear");
+        btn.current.classList.add("appear");
+        btn.current.style.display = 'block'; // ref ={}로 참조한 요소 변수에 담기
+      });
+  
+      blurPage.current.style.display = 'block';
+      setCheckAnim(true);
     }
-  };
+  };  
 
 
   const clicksub1 = () => {
@@ -58,17 +54,15 @@ function Nav() {
     navigate('/');
   };
 
-  const animSub1 = () => {      //animation 종료시 실행
-    if( checkAnim ){
+  const animSub1 = () => { // animation 종료 시 실행
+    if (checkAnim) {
       setCheckAnim(false);
-    }else{
-      sub1Btn.current.style.display='none'; //ref={}로 참조한 요소 변수에 담기
-      sub2Btn.current.style.display='none';
-      sub3Btn.current.style.display='none';
-      blurPage.current.style.display='none';
+    } else {
+      buttons.forEach(btn => btn.current.style.display = 'none');
+      blurPage.current.style.display = 'none';
       setCheckAnim(true);
     }
-  }
+  };
 
   const detailSub1 = () => {              // 서브메뉴 :hover
     if( M1Text.current.style.display=="block"){

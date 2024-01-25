@@ -79,10 +79,7 @@ def title():
     cursor.execute(sql_covid1_date)
     data_list = cursor.fetchall()
 
-    array1=[]
-    for i in data_list:
-        for idx, data in enumerate(i):
-            array1.append(data)
+    array1 = [data for i in data_list for data in i]
 
     return jsonify(array1)
 
